@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class Player : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class Player : MonoBehaviour
     public bool tapWait;    // 入力待ち
 
     private static readonly int JumpFrame = 8;
+    private Tween waitTween;
 
     private enum TapState {
         None = 0,
@@ -64,6 +66,8 @@ public class Player : MonoBehaviour
         _animator = GetComponent<Animator>();
         tapFrame = 0;
         tapCount = 0;
+
+        waitTween = transform.DOMoveY (1.0f, 1.0f).SetEase(Ease.OutQuad).SetLoops (-1, LoopType.Yoyo);
     }
 
     void Update () {
@@ -84,6 +88,9 @@ public class Player : MonoBehaviour
         _animator.SetFloat ("v", _rigidbody.velocity.y);
     }
 
+    public void StartGame () {
+        waitTween.Kill ();
+    }
 
 
 
