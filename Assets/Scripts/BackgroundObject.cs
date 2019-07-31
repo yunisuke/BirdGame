@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectHaiti : MonoBehaviour
+public class BackgroundObject : BaseStageObject
 {
     [SerializeField] private GameObject[] objs;
     [SerializeField] private float spaceX;
@@ -15,10 +15,10 @@ public class ObjectHaiti : MonoBehaviour
         length = (int)(rangeX * 2 / spaceX);
         hairetu = new bool[length];
 
-        Refresh ();
+        SetObjects ();
     }
 
-    public void Refresh () {
+    public override void SetObjects () {
         for (int i=0; i<objs.Length; i++) objs[i].SetActive (false);
         for (int i=0; i<hairetu.Length; i++) hairetu[i] = false;
 

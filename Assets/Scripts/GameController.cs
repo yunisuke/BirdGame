@@ -5,19 +5,23 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     [SerializeField] Player player;
-    [SerializeField] StageController stCtr;
+    [SerializeField] LayerController lyCtr;
     [SerializeField] MainPanel mainPanel;
 
+    private bool isStartGame = false;
+
     void Update () {
-        if (Input.GetMouseButtonDown (0)) {
+        if (Input.GetMouseButtonDown (0) && isStartGame == false) {
             StartGame ();
         }
     }
 
     public void StartGame () {
+        isStartGame = true;
+
         player.GetComponent<Rigidbody2D>().gravityScale = 3.0f;
         player.StartGame ();
-        stCtr.AppearEnemy ();
+        lyCtr.AppearEnemy ();
         mainPanel.StartGame ();
     }
 }
