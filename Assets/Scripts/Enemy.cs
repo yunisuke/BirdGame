@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer upperEnemy;
     [SerializeField] private SpriteRenderer lowerEnemy;
+    [SerializeField] private PointCollider pointCollider;
 
     public void SetEnemy () {
         int total_height = 5;

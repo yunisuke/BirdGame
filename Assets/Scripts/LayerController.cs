@@ -20,4 +20,11 @@ public class LayerController : MonoBehaviour
         layerEnemy.SetSpeed (4f);
         layerEnemy.Refresh ();
     }
+
+    public void GameOver () {
+        layerEnemy.SetSpeed (0f);
+        layerFront.SetSpeed (0f);
+        layerMiddle.SetSpeed (0f);
+        layerBack.SetSpeed (0f);
+    }
 }

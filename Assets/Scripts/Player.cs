@@ -2,14 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using DG.Tweening;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] private float JumpSpeed = 12f;
+    public UnityAction gameoverCallback;
+    public UnityAction pointCallback;
 
     private Rigidbody2D _rigidbody;
     private Animator _animator;
+    private bool enabledInput = true;
 
     public int tapFrame;    // タップし続けたフレーム数
     public int tapInterval; // タップ間隔フレーム数
@@ -71,6 +75,8 @@ public class Player : MonoBehaviour
     }
 
     void Update () {
+        if (enabledInput == false) return;
+
         var state = InputCheck ();
         if (state == TapState.LongTap) {
             _rigidbody.velocity = new Vector3 (0f, -0.5f, 0f);
@@ -93,13 +99,15 @@ public class Player : MonoBehaviour
     }
 
 
-
-
     void OnTriggerEnter2D (Collider2D collider) {
-        Debug.Log ("Hit!");
-    }
+        var tag = collider.gameObject.tag;
 
-    private void Move () {
-
+        if (tag == "Enemy") {
+            enabledInput = false;
+            _animator.SetTrigger ("death");
+            gameoverCallback ();
+        } else if (tag == "Point") {
+            pointCallback ();
+        }
     }
 }
