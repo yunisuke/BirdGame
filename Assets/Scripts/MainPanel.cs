@@ -26,8 +26,8 @@ public class MainPanel : MonoBehaviour
         scoreView.gameObject.SetActive (true);
     }
 
-    public void GameOver (int now_score, int best_score) {
-        gameOverEffect.StartAnimation (now_score, best_score);
+    public void GameOver (int now_score, int best_score, UnityAction after_effect_callback) {
+        gameOverEffect.StartAnimation (now_score, best_score, after_effect_callback);
         scoreView.gameObject.SetActive (false);
     }
 

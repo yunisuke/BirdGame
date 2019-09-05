@@ -4,9 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public enum GameStateType {
-    WaitGetReady, // 演出待ち 
+    WaitGetReady, // 開始前演出待ち 
     GetReady,  // 開始待ち
     Game,      // ゲーム中
+    WaitGameOver, // ゲームオーバー演出待ち
     GameOver,  // ゲームオーバー
 }
 
@@ -38,6 +39,10 @@ public class GameController : MonoBehaviour
         state = GameStateType.GetReady;
     }
 
+    private void AfterGameOverCallback () {
+        state = GameStateType.GameOver;
+    }
+
     public void StartGame () {
         state = GameStateType.Game;
 
@@ -65,7 +70,7 @@ public class GameController : MonoBehaviour
 
     private IEnumerator GameOverAnimation (int best_score) {
         yield return new WaitForSeconds (1.0f);
-        state = GameStateType.GameOver;
-        mainPanel.GameOver (score, best_score);
+        state = GameStateType.WaitGameOver;
+        mainPanel.GameOver (score, best_score, AfterGameOverCallback);
     }
 }

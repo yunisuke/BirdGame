@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using DG.Tweening;
 
 public class GameOverEffect : MonoBehaviour
@@ -16,7 +17,7 @@ public class GameOverEffect : MonoBehaviour
     private bool finishAnimation = false;
     public bool FinishAnimation {get {return finishAnimation;}}
 
-    public void StartAnimation (int now_score, int best_score) {
+    public void StartAnimation (int now_score, int best_score, UnityAction after_effect_callback) {
         gameOverTr.gameObject.SetActive (true);
         scoreTr.gameObject.SetActive (true);
         gameOverTr.localPosition = new Vector2 (0f, 400f);
@@ -48,6 +49,8 @@ public class GameOverEffect : MonoBehaviour
             now_score,
             now_score * 0.1f
         ).SetEase (Ease.Linear);
-        seq.Append (tw);
+        seq.Append (tw).OnComplete (() => {
+            after_effect_callback ();
+        });
     }
 }

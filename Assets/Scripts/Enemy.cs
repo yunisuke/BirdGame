@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     public void SetEnemy () {
         int total_height = 5;
 
-        int height = Random.Range (0, 6);
+        int height = Random.Range (1, 4);
         upperEnemy.size = new Vector2 (1, height);
         upperEnemy.transform.localPosition = new Vector3 (0, -(height - 1) * 0.5f, 0);
 
