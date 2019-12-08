@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour
     [SerializeField] Player player;
     [SerializeField] LayerController lyCtr;
     [SerializeField] MainPanel mainPanel;
+    [SerializeField] float gameSpeed = 1.0f;
 
     private int score;
     private GameStateType state;
@@ -48,7 +49,7 @@ public class GameController : MonoBehaviour
 
         player.GetComponent<Rigidbody2D>().gravityScale = 3.0f;
         player.StartGame ();
-        lyCtr.AppearEnemy ();
+        lyCtr.StartGame (gameSpeed);
         mainPanel.StartGame ();
     }
 
