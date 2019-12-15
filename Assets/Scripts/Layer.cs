@@ -6,6 +6,7 @@ public class Layer : MonoBehaviour
 {
     [SerializeField] private Stage stg_1;
     [SerializeField] private Stage stg_2;
+    [SerializeField] private float stgOffset;
 
     [SerializeField] private float Speed = 4.0f;
 
@@ -34,7 +35,7 @@ public class Layer : MonoBehaviour
         if (goalPosX != 0) goalX = goalPosX;
 
         if (target.transform.localPosition.x < goalX) {
-            target.transform.localPosition = new Vector3 (other.transform.localPosition.x + 24f, 0f, 0f);
+            target.transform.localPosition = new Vector3 (other.transform.localPosition.x + stgOffset, 0f, 0f);
             target.RefreshObject ();
         }
     }
