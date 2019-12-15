@@ -24,8 +24,8 @@ public class LayerController : MonoBehaviour
     public void SetGameSpeed (float speed) {
         layerEnemy.SetSpeed (speed * 4);
         layerFront.SetSpeed (speed * 4);
-        layerMiddle.SetSpeed (speed * 2);
-        layerBack.SetSpeed (speed);
+        layerMiddle.SetSpeed (speed * 1.2f);
+        layerBack.SetSpeed (speed * 0.3f);
     }
 
     public void GameOver () {
