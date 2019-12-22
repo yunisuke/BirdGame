@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer upperEnemy;
-    [SerializeField] private SpriteRenderer lowerEnemy;
+    [SerializeField] private GameObject upperEnemy;
+    [SerializeField] private GameObject lowerEnemy;
     [SerializeField] private PointCollider pointCollider;
 
+    private readonly float LowerLimit = -2.7f;
+    private readonly float UpperLimit = 4f;
+    private float enemySpace = 5.0f;
+
     public void SetEnemy () {
-        int total_height = 5;
-
-        int height = Random.Range (1, 4);
-        upperEnemy.size = new Vector2 (1, height);
-        upperEnemy.transform.localPosition = new Vector3 (0, -(height - 1) * 0.5f, 0);
-
-        height = total_height - height;
-        lowerEnemy.size = new Vector2 (1, height);
-        lowerEnemy.transform.localPosition = new Vector3 (0, (height - 1) * 0.5f, 0);
+        var lower_enemy_max = UpperLimit - enemySpace;
+        var lower_position = Random.Range (LowerLimit, lower_enemy_max);
+        var upper_position = lower_position + enemySpace;
+        lowerEnemy.transform.localPosition = new Vector2 (0, lower_position);
+        upperEnemy.transform.localPosition = new Vector2 (0, upper_position);
     }
 }
