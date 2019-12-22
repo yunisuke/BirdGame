@@ -26,6 +26,7 @@ public class GameController : MonoBehaviour
         player.gameoverCallback = GameOver;
         player.pointCallback = GetPoint;
         mainPanel.GetReady (AfterWaitGetReadyCallback);
+        lyCtr.SetGameSpeed (gameSpeed);
     }
 
     void Update () {
@@ -34,6 +35,18 @@ public class GameController : MonoBehaviour
         } else if (Input.GetMouseButtonDown (0) && state == GameStateType.GameOver) {
             SceneManager.LoadSceneAsync ("GameScene");
         }
+    }
+
+    public void OnClickEasyButton () {
+        lyCtr.SetGameSpeed (1.0f);
+    }
+
+    public void OnClickNormalButton () {
+        lyCtr.SetGameSpeed (2.0f);
+    }
+
+    public void OnClickHardButton () {
+        lyCtr.SetGameSpeed (3.0f);
     }
 
     private void AfterWaitGetReadyCallback () {

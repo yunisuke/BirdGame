@@ -16,10 +16,6 @@ public class Layer : MonoBehaviour
         MoveObj (stg_1, stg_2);
     }
 
-    void Start () {
-        SetSpeed (Speed);
-    }
-
     void Update () {
         MoveObj (stg_1, stg_2);
         MoveObj (stg_2, stg_1);

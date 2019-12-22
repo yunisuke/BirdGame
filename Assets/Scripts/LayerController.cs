@@ -8,21 +8,17 @@ public class LayerController : MonoBehaviour
     [SerializeField] private Layer layerFront;
     [SerializeField] private Layer layerMiddle;
     [SerializeField] private Layer layerBack;
-
-    void Awake () {
-        layerEnemy.SetSpeed (0f);
-        layerFront.SetSpeed (4f);
-        layerMiddle.SetSpeed (2f);
-        layerBack.SetSpeed (1f);
-    }
+    private bool appearEnemy = false;
 
     public void StartGame (float speed) {
+        appearEnemy = true;
+
         layerEnemy.Refresh ();
         SetGameSpeed (speed);
     }
 
     public void SetGameSpeed (float speed) {
-        layerEnemy.SetSpeed (speed * 4);
+        if (appearEnemy) layerEnemy.SetSpeed (speed * 4);
         layerFront.SetSpeed (speed * 4);
         layerMiddle.SetSpeed (speed * 1.2f);
         layerBack.SetSpeed (speed * 0.3f);
