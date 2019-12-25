@@ -43,3 +43,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: LayerBack
+    uniqueID: 1048158303
+    locked: 0
+  - name: LayerMiddle
+    uniqueID: 229897701
+    locked: 0
+  - name: LayerEnemy
+    uniqueID: 1296938251
+    locked: 0
+  - name: LayerFront
+    uniqueID: 1336264343
+    locked: 0
+  - name: Player
+    uniqueID: 1958449693
+    locked: 0
