@@ -10,12 +10,11 @@ public class Enemy : MonoBehaviour
 
     private readonly float LowerLimit = -2.7f;
     private readonly float UpperLimit = 4f;
-    private float enemySpace = 5.0f;
 
-    public void SetEnemy () {
-        var lower_enemy_max = UpperLimit - enemySpace;
+    public void SetEnemy (float enemy_space) {
+        var lower_enemy_max = UpperLimit - enemy_space;
         var lower_position = Random.Range (LowerLimit, lower_enemy_max);
-        var upper_position = lower_position + enemySpace;
+        var upper_position = lower_position + enemy_space;
         lowerEnemy.transform.localPosition = new Vector2 (0, lower_position);
         upperEnemy.transform.localPosition = new Vector2 (0, upper_position);
     }

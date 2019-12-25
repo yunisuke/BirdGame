@@ -7,6 +7,7 @@ public class EnemyObject : BaseStageObject
     [SerializeField] private Transform[] enemyContainers;
     [SerializeField] private Enemy enemyPrefab;
     private List<Enemy> enemyList = new List<Enemy>();
+    private float enemySpace = 4f;
 
     void Awake () {
         for (int i=0; i<enemyContainers.Length; i++) {
@@ -16,8 +17,9 @@ public class EnemyObject : BaseStageObject
     }
 
     public override void SetObjects () {
+        enemySpace -= 0.3f;
         foreach (var enemy in enemyList) {
-            enemy.SetEnemy ();
+            enemy.SetEnemy (enemySpace);
         }
     }
 }

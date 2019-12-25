@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public enum GameStateType {
     WaitGetReady, // 開始前演出待ち 
-    GetReady,  // 開始待ち
-    Game,      // ゲーム中
+    GetReady,     // 開始待ち
+    Game,         // ゲーム中
     WaitGameOver, // ゲームオーバー演出待ち
-    GameOver,  // ゲームオーバー
+    GameOver,     // ゲームオーバー
 }
 
 public class GameController : MonoBehaviour
