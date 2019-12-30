@@ -72,8 +72,7 @@ public class GameController : MonoBehaviour
     }
 
     private void GameOver () {
-        player.GetComponent <Rigidbody2D>().velocity = new Vector3 (-5, 6, 0);
-        player.GetComponent <BoxCollider2D>().enabled = false;
+        player.GetComponent <Rigidbody2D>().velocity = new Vector3 (-3, 10, 0);
         lyCtr.GameOver ();
 
         var best_score = PlayerPrefs.GetInt ("BestScore");

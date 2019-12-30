@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7187875167751685441}
   - component: {fileID: 2304968325355204011}
   - component: {fileID: 3117047152796416826}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2339849964631797718}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7634523925237840699}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Lower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7200699937080835948}
   - component: {fileID: 7200699937080835951}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 7200699937235450938}
   - component: {fileID: 7200699937235450940}
   - component: {fileID: 7200699937235450941}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PointCollider
   m_TagString: Point
   m_Icon: {fileID: 0}
@@ -301,7 +301,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7200699937777162653}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Upper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,7 +334,7 @@ GameObject:
   - component: {fileID: 4181804553417352991}
   - component: {fileID: 7200699938508032799}
   - component: {fileID: 7200699938508032796}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}

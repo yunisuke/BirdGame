@@ -29,32 +29,6 @@ public class Player : MonoBehaviour
         LongTap,
     }
 
-    // private TapState InputCheck () {
-    //     TapState t_state = TapState.None;
-
-    //     if (Input.GetMouseButtonDown (0)) {
-    //         tapCount++;
-    //     }
-        
-    //     if (Input.GetMouseButton (0)) {
-    //         tapFrame++;
-    //     }
-
-    //     if (Input.GetMouseButtonUp (0)) {
-    //         if (tapCount > 0 && tapFrame <= JumpFrame) {
-    //             t_state = TapState.Tap;
-    //         }
-    //         tapCount = 0;
-    //         tapFrame = 0;
-    //     }
-
-    //     if (tapFrame > JumpFrame) {
-    //         t_state = TapState.LongTap;
-    //     }
-
-    //     return t_state;
-    // }
-
     private TapState InputCheck () {
         TapState t_state = TapState.None;
 
@@ -86,11 +60,6 @@ public class Player : MonoBehaviour
             _rigidbody.velocity = new Vector3 (0f, JumpSpeed, 0f);
         }
 
-        //     _rigidbody.velocity = new Vector3 (0f, -0.5f, 0f);
-        // } else if (Input.GetMouseButtonUp (0)) {
-        //     _rigidbody.velocity = new Vector3 (0f, 8f, 0f);
-        // }
-
         _animator.SetFloat ("v", _rigidbody.velocity.y);
     }
 
@@ -98,12 +67,18 @@ public class Player : MonoBehaviour
         waitTween.Kill ();
     }
 
+    private bool isDead = false;
+    void OnTriggerEnter2D (Collider2D collision) {
+        var tag = collision.gameObject.tag;
 
-    void OnTriggerEnter2D (Collider2D collider) {
-        var tag = collider.gameObject.tag;
-
-        if (tag == "Enemy") {
+        if (tag == "Ground" && isDead) {
+            _animator.SetTrigger ("dead");
+            _rigidbody.bodyType = RigidbodyType2D.Kinematic;
+            _rigidbody.velocity = new Vector2 (0, 0);
+            transform.localPosition = new Vector2 (transform.localPosition.x, -3.41f);
+        } else if (isDead == false && (tag == "Enemy" || tag == "Ground")) {
             enabledInput = false;
+            isDead = true;
             _animator.SetTrigger ("death");
             gameoverCallback ();
         } else if (tag == "Point") {
