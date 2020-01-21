@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
             _animator.SetTrigger ("dead");
             _rigidbody.bodyType = RigidbodyType2D.Kinematic;
             _rigidbody.velocity = new Vector2 (0, 0);
-            transform.localPosition = new Vector2 (transform.localPosition.x, -3.41f);
+            transform.localPosition = new Vector2 (transform.localPosition.x, -3.32f);
         } else if (isDead == false && (tag == "Enemy" || tag == "Ground")) {
             enabledInput = false;
             isDead = true;
