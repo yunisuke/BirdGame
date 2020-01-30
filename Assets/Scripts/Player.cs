@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
     private TapState InputCheck () {
         TapState t_state = TapState.None;
 
-        if (Input.GetMouseButtonDown (0)) {
+        if (Input.GetMouseButton (0)) {
             t_state = TapState.Tap;
         }
 
@@ -57,7 +57,8 @@ public class Player : MonoBehaviour
         }
 
         if (state == TapState.Tap) {
-            _rigidbody.velocity = new Vector3 (0f, JumpSpeed, 0f);
+            _rigidbody.AddForce (Vector2.up * 230f);
+            // _rigidbody.velocity = new Vector3 (0f, JumpSpeed, 0f);
         }
 
         _animator.SetFloat ("v", _rigidbody.velocity.y);
