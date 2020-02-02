@@ -52,20 +52,28 @@ public class Player : MonoBehaviour
         if (enabledInput == false) return;
 
         var state = InputCheck ();
-        if (state == TapState.LongTap) {
-            _rigidbody.velocity = new Vector3 (0f, -0.5f, 0f);
-        }
 
         if (state == TapState.Tap) {
             _rigidbody.AddForce (Vector2.up * 230f);
-            // _rigidbody.velocity = new Vector3 (0f, JumpSpeed, 0f);
         }
 
-        _animator.SetFloat ("v", _rigidbody.velocity.y);
+        SetAnimation (state);
     }
 
     public void StartGame () {
         waitTween.Kill ();
+    }
+
+    private void SetAnimation (TapState tap_state) {
+        switch (tap_state) {
+            case TapState.None:
+                _animator.SetTrigger ("gliding");
+                break;
+
+            case TapState.Tap:
+                _animator.SetTrigger ("jump");
+                break;
+        }
     }
 
     private bool isDead = false;
