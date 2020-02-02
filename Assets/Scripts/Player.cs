@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private Animator _animator;
     private bool enabledInput = true;
+    private bool isStartGame = false;
 
     public int tapFrame;    // タップし続けたフレーム数
     public int tapInterval; // タップ間隔フレーム数
@@ -49,7 +50,7 @@ public class Player : MonoBehaviour
     }
 
     void Update () {
-        if (enabledInput == false) return;
+        if (enabledInput == false || isStartGame == false) return;
 
         var state = InputCheck ();
 
@@ -62,6 +63,7 @@ public class Player : MonoBehaviour
 
     public void StartGame () {
         waitTween.Kill ();
+        isStartGame = true;
     }
 
     private void SetAnimation (TapState tap_state) {
