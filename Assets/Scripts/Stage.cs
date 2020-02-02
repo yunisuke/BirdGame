@@ -7,6 +7,10 @@ public class Stage : MonoBehaviour
     [SerializeField] private BaseStageObject obj;
     [SerializeField] private Rigidbody2D rb;
 
+    public void Initialize () {
+        obj.Initialize ();
+    }
+
     public void RefreshObject () {
         if (obj != null) obj.SetObjects ();
     }

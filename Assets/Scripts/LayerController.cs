@@ -13,6 +13,7 @@ public class LayerController : MonoBehaviour
     public void StartGame (float speed) {
         appearEnemy = true;
 
+        layerEnemy.Initialize ();
         layerEnemy.Refresh ();
         SetGameSpeed (speed);
     }

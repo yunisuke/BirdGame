@@ -5,4 +5,5 @@ using UnityEngine;
 public abstract class BaseStageObject : MonoBehaviour
 {
     public abstract void SetObjects (); // オブジェクトの配置
+    public virtual void Initialize () {}
 }

@@ -21,6 +21,11 @@ public class Layer : MonoBehaviour
         MoveObj (stg_2, stg_1);
     }
 
+    public void Initialize () {
+        stg_1.Initialize ();
+        stg_2.Initialize ();
+    }
+
     public void SetSpeed (float speed) {
         stg_1.SetSpeed (speed);
         stg_2.SetSpeed (speed);
