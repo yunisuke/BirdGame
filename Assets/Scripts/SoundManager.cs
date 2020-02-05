@@ -33,7 +33,10 @@ public class SoundManager
     }
 
     public void PlaySE (SEType se_type) {
-        audio.PlayOneShot (seList.Find (x => x.name == SE_Names[(int)se_type]));
+        var se = seList.Find (x => x.name == SE_Names[(int)se_type]);
+        if (se == null) return;
+
+        audio.PlayOneShot (se);
     }
 
     private readonly string[] SE_Names = {
