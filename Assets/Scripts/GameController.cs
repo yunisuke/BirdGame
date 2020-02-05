@@ -22,6 +22,8 @@ public class GameController : MonoBehaviour
     private GameStateType state;
 
     void Start () {
+        SoundManager.Instance.Initialize ();
+
         state = GameStateType.WaitGetReady;
         player.gameoverCallback = GameOver;
         player.pointCallback = GetPoint;
@@ -68,10 +70,14 @@ public class GameController : MonoBehaviour
 
     private void GetPoint () {
         score ++;
+
+        SoundManager.Instance.PlaySE (SEType.Score);
         mainPanel.UpdateScore (score);
     }
 
     private void GameOver () {
+        SoundManager.Instance.PlaySE (SEType.Hit);
+
         player.GetComponent <Rigidbody2D>().velocity = new Vector3 (-3, 10, 0);
         lyCtr.GameOver ();
 

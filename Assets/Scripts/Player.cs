@@ -31,13 +31,15 @@ public class Player : MonoBehaviour
     }
 
     private TapState InputCheck () {
-        TapState t_state = TapState.None;
-
-        if (Input.GetMouseButton (0)) {
-            t_state = TapState.Tap;
+        if (Input.GetMouseButtonDown (0)) {
+            return TapState.Tap;
         }
 
-        return t_state;
+        if (Input.GetMouseButton (0)) {
+            return TapState.LongTap;
+        }
+
+        return TapState.None;
     }
 
     void Start () {
@@ -54,7 +56,8 @@ public class Player : MonoBehaviour
 
         var state = InputCheck ();
 
-        if (state == TapState.Tap) {
+        if (state == TapState.Tap || state == TapState.LongTap) {
+            if (state == TapState.Tap) SoundManager.Instance.PlaySE (SEType.Flap);
             _rigidbody.AddForce (Vector2.up * 230f);
         }
 
@@ -73,6 +76,7 @@ public class Player : MonoBehaviour
                 break;
 
             case TapState.Tap:
+            case TapState.LongTap:
                 _animator.SetTrigger ("jump");
                 break;
         }
