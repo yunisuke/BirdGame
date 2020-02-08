@@ -36,7 +36,7 @@ public class Layer : MonoBehaviour
         if (goalPosX != 0) goalX = goalPosX;
 
         if (target.transform.localPosition.x < goalX) {
-            target.transform.localPosition = new Vector3 (other.transform.localPosition.x + stgOffset, 0f, 0f);
+            target.transform.localPosition = new Vector3 (other.transform.localPosition.x + stgOffset, target.transform.localPosition.y, 0f);
             target.RefreshObject ();
         }
     }
