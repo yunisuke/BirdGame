@@ -19,11 +19,11 @@ public class GoogleAds : MonoBehaviour {
     private void RequestBanner()
     {
         // 広告ユニットID これはテスト用
-        string adUnitId = "ca-app-pub-3940256099942544/6300978111";
+        // string adUnitId = "ca-app-pub-3940256099942544/6300978111";
 
         // 本物
-        // string adUnitId = "ca-app-pub-9131760489850595/1222768283";
- 
+        string adUnitId = "ca-app-pub-9131760489850595/1222768283";
+
         // Create a 320x50 banner at the top of the screen.
         BannerView bannerView = new BannerView(adUnitId, AdSize.Banner, AdPosition.Bottom);
  
