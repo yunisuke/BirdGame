@@ -24,6 +24,7 @@ public class GameController : MonoBehaviour
     void Start () {
         SoundManager.Instance.Initialize ();
         mainPanel.OnClickNextGameButtonAction = StartNextGame;
+        mainPanel.OnClickTitleButtonAction = MoveTitle;
 
         state = GameStateType.WaitGetReady;
         player.gameoverCallback = GameOver;
@@ -38,20 +39,12 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void OnClickEasyButton () {
-        lyCtr.SetGameSpeed (1.0f);
-    }
-
-    public void OnClickNormalButton () {
-        lyCtr.SetGameSpeed (2.0f);
-    }
-
-    public void OnClickHardButton () {
-        lyCtr.SetGameSpeed (3.0f);
-    }
-
     public void StartNextGame () {
         SceneManager.LoadSceneAsync ("GameScene");
+    }
+
+    public void MoveTitle () {
+        SceneManager.LoadSceneAsync ("TitleScene");
     }
 
     private void AfterWaitGetReadyCallback () {
