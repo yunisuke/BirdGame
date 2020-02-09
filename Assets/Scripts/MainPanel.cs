@@ -17,6 +17,8 @@ public class MainPanel : MonoBehaviour
     [SerializeField] private GetReadyEffect getReadyEffect;
     [SerializeField] private GameOverEffect gameOverEffect;
 
+    public UnityAction OnClickNextGameButtonAction;
+
     public void GetReady (UnityAction after_effect_callback) {
         getReadyEffect.StartAnimation (after_effect_callback);
     }
@@ -33,5 +35,18 @@ public class MainPanel : MonoBehaviour
 
     public void UpdateScore (int score) {
         scoreView.SetScore (score);
+    }
+
+    public void OnClickNextGameButton () {
+        SoundManager.Instance.PlaySE (SEType.Button);
+        OnClickNextGameButtonAction.Invoke ();
+    }
+
+    public void OnClickRankingButton () {
+        SoundManager.Instance.PlaySE (SEType.Button);
+    }
+
+    public void OnClickTitleButton () {
+        SoundManager.Instance.PlaySE (SEType.Button);
     }
 }

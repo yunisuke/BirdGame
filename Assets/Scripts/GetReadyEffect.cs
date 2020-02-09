@@ -18,7 +18,7 @@ public class GetReadyEffect : MonoBehaviour
         getReadyTr.localPosition = new Vector2 (0f, 450f);
         tutorialTr.localPosition = new Vector2 (0f, -500f);
 
-        getReadyTr.DOLocalMoveY (150f, 1f).SetEase (Ease.OutCubic).OnComplete (() => {
+        getReadyTr.DOLocalMoveY (200f, 1f).SetEase (Ease.OutCubic).OnComplete (() => {
             after_effect_callback ();
         });
         tutorialTr.DOLocalMoveY (-80f, 1f).SetEase (Ease.OutCubic);

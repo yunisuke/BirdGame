@@ -9,6 +9,7 @@ public class GameOverEffect : MonoBehaviour
 {
     [SerializeField] private RectTransform gameOverTr;
     [SerializeField] private RectTransform scoreTr;
+    [SerializeField] private GameObject commandObj;
 
     [SerializeField] private Score nowScoreView;  // ゲームオーバー時。今のプレイの記録
     [SerializeField] private Score bestScoreView; // ゲームオーバー時。最高記録
@@ -25,10 +26,10 @@ public class GameOverEffect : MonoBehaviour
         bestScoreView.SetScore (best_score);
 
         var seq = DOTween.Sequence ();
-        seq.Append (gameOverTr.DOLocalMoveY (150f, 0.1f).SetEase (Ease.Linear));
+        seq.Append (gameOverTr.DOLocalMoveY (200f, 0.1f).SetEase (Ease.Linear));
         seq.Append (gameOverTr.DOPunchPosition (new Vector2 (0f, 50.0f), 0.5f, 20));
         seq.AppendInterval (0.1f);
-        seq.Append (scoreTr.DOLocalMoveY (-65f, 0.5f).SetEase (Ease.OutCubic));
+        seq.Append (scoreTr.DOLocalMoveY (-44f, 0.5f).SetEase (Ease.OutCubic).OnComplete (() => commandObj.SetActive (true)));
 
         // スコアのアニメーション
         seq.AppendInterval (0.2f);
