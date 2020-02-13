@@ -29,7 +29,7 @@ public class BackgroundObject : BaseStageObject
             int count = 0;
             while (true) {
                 int rand = Random.Range (0, length);
-                if (existObjs[rand] == false || count >= 3) {
+                if (existObjs[rand] == false || count >= 20) {
                     existObjs[rand] = true;
 
                     var rand_x = Random.Range (-randomX, randomX);

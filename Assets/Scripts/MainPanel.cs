@@ -19,6 +19,7 @@ public class MainPanel : MonoBehaviour
 
     public UnityAction OnClickNextGameButtonAction;
     public UnityAction OnClickTitleButtonAction;
+    public UnityAction OnClickRankingButtonAction;
 
     public void GetReady (UnityAction after_effect_callback) {
         getReadyEffect.StartAnimation (after_effect_callback);
@@ -45,7 +46,7 @@ public class MainPanel : MonoBehaviour
 
     public void OnClickRankingButton () {
         SoundManager.Instance.PlaySE (SEType.Button);
-        
+        OnClickRankingButtonAction.Invoke ();
     }
 
     public void OnClickTitleButton () {

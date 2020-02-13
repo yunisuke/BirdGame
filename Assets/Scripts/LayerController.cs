@@ -18,6 +18,10 @@ public class LayerController : MonoBehaviour
         SetGameSpeed (speed);
     }
 
+    public void SetBackLayerSpeed (float speed) {
+        layerBack.SetSpeed (speed * 0.3f);
+    }
+
     public void SetGameSpeed (float speed) {
         if (appearEnemy) layerEnemy.SetSpeed (speed * 4);
         layerFront.SetSpeed (speed * 4);

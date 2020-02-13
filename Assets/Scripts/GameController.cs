@@ -25,6 +25,7 @@ public class GameController : MonoBehaviour
         SoundManager.Instance.Initialize ();
         mainPanel.OnClickNextGameButtonAction = StartNextGame;
         mainPanel.OnClickTitleButtonAction = MoveTitle;
+        mainPanel.OnClickRankingButtonAction = MoveRanking;
 
         state = GameStateType.WaitGetReady;
         player.gameoverCallback = GameOver;
@@ -45,6 +46,10 @@ public class GameController : MonoBehaviour
 
     public void MoveTitle () {
         SceneManager.LoadSceneAsync ("TitleScene");
+    }
+
+    public void MoveRanking () {
+        SceneManager.LoadSceneAsync ("RankingScene");
     }
 
     private void AfterWaitGetReadyCallback () {
@@ -77,9 +82,8 @@ public class GameController : MonoBehaviour
         player.GetComponent <Rigidbody2D>().velocity = new Vector3 (-3, 10, 0);
         lyCtr.GameOver ();
 
-        var best_score = PlayerPrefs.GetInt ("BestScore");
-        if (score > best_score) PlayerPrefs.SetInt ("BestScore", score);
-
+        var best_score = Ranking.GetBestScore ();
+        Ranking.SaveScore (score);
         StartCoroutine (GameOverAnimation (best_score));
     }
 

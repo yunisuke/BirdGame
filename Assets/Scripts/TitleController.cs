@@ -20,5 +20,6 @@ public class TitleController : MonoBehaviour
 
     public void OnClickRankingButton () {
         SoundManager.Instance.PlaySE (SEType.Button);
+        SceneManager.LoadSceneAsync ("RankingScene");
     }
 }

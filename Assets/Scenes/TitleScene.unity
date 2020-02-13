@@ -1488,8 +1488,8 @@ MonoBehaviour:
   - {fileID: 209701603}
   spaceX: 12
   rangeX: 13
-  randomX: 1.2
-  randomY: 1.5
+  randomX: 0.5
+  randomY: 1.2
 --- !u!4 &524216911
 Transform:
   m_ObjectHideFlags: 0
@@ -2457,7 +2457,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 191.39}
+  m_AnchoredPosition: {x: 0, y: 200}
   m_SizeDelta: {x: 440, y: 88}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &973417480
@@ -4690,8 +4690,8 @@ MonoBehaviour:
   - {fileID: 921964180}
   spaceX: 12
   rangeX: 13
-  randomX: 1.2
-  randomY: 1.5
+  randomX: 0.5
+  randomY: 1.2
 --- !u!1 &2064105422
 GameObject:
   m_ObjectHideFlags: 0
