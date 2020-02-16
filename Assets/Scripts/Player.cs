@@ -96,7 +96,7 @@ public class Player : MonoBehaviour
             isDead = true;
             _animator.SetTrigger ("death");
             gameoverCallback ();
-        } else if (tag == "Point") {
+        } else if (tag == "Point" && isDead == false) {
             pointCallback ();
         }
     }
