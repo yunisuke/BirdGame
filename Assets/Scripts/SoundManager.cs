@@ -27,6 +27,7 @@ public class SoundManager
             var obj = new GameObject("Sound");
             GameObject.DontDestroyOnLoad(obj);
             audio = obj.AddComponent<AudioSource>();
+            obj.AddComponent<AudioListener>();
         }
 
         seList = Resources.LoadAll<AudioClip> ("SE").ToList ();
