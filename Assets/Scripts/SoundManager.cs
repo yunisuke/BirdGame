@@ -13,6 +13,9 @@ public class SoundManager
 
     private AudioSource audio = new AudioSource ();
 
+    // 初期化フラグ
+    private bool isInitialized = false;
+
     private SoundManager () {
 
     }
@@ -23,14 +26,17 @@ public class SoundManager
     }}
 
     public void Initialize () {
+        if (isInitialized) return;
+
         if (audio == null) {
             var obj = new GameObject("Sound");
             GameObject.DontDestroyOnLoad(obj);
             audio = obj.AddComponent<AudioSource>();
             obj.AddComponent<AudioListener>();
         }
-
         seList = Resources.LoadAll<AudioClip> ("SE").ToList ();
+
+        isInitialized = true;
     }
 
     public void PlaySE (SEType se_type) {

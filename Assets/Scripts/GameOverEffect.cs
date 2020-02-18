@@ -29,7 +29,10 @@ public class GameOverEffect : MonoBehaviour
         seq.Append (gameOverTr.DOLocalMoveY (200f, 0.1f).SetEase (Ease.Linear));
         seq.Append (gameOverTr.DOPunchPosition (new Vector2 (0f, 50.0f), 0.5f, 20));
         seq.AppendInterval (0.1f);
-        seq.Append (scoreTr.DOLocalMoveY (-44f, 0.5f).SetEase (Ease.OutCubic).OnComplete (() => commandObj.SetActive (true)));
+        seq.Append (scoreTr.DOLocalMoveY (-44f, 0.5f).SetEase (Ease.OutCubic).OnComplete (() => {
+            commandObj.SetActive (true);
+            AdManager.Instance.ShowAds ();
+        }));
 
         // スコアのアニメーション
         seq.AppendInterval (0.2f);

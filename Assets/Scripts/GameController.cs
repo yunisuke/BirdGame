@@ -23,6 +23,9 @@ public class GameController : MonoBehaviour
 
     void Start () {
         SoundManager.Instance.Initialize ();
+        AdManager.Instance.Initialize ();
+        AdManager.Instance.HideAds ();
+
         mainPanel.OnClickNextGameButtonAction = StartNextGame;
         mainPanel.OnClickTitleButtonAction = MoveTitle;
         mainPanel.OnClickRankingButtonAction = MoveRanking;

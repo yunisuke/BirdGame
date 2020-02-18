@@ -2366,6 +2366,7 @@ MonoBehaviour:
   - {fileID: 1073910890}
   - {fileID: 162446441}
   - {fileID: 2080373153}
+  rankingResetButton: {fileID: 1330854507}
 --- !u!1 &347552530
 GameObject:
   m_ObjectHideFlags: 0

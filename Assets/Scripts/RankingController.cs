@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class RankingController : MonoBehaviour
 {
@@ -9,9 +10,17 @@ public class RankingController : MonoBehaviour
     [SerializeField] float gameSpeed = 1.0f;
 
     [SerializeField] Score[] rankingScoreViews = new Score[10];
+    [SerializeField] private Button rankingResetButton;
+
+    void Awake () {
+        rankingResetButton.gameObject.SetActive (Debug.isDebugBuild);
+    }
 
     void Start () {
         SoundManager.Instance.Initialize ();
+        AdManager.Instance.Initialize ();
+        AdManager.Instance.ShowAds ();
+
         lyCtr.SetBackLayerSpeed (gameSpeed);
         SetRanking ();
     }
