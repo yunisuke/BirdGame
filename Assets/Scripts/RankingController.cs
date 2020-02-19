@@ -19,6 +19,7 @@ public class RankingController : MonoBehaviour
     void Start () {
         SoundManager.Instance.Initialize ();
         AdManager.Instance.Initialize ();
+        FPSManager.Instance.Initialize ();
         AdManager.Instance.ShowAds ();
 
         lyCtr.SetBackLayerSpeed (gameSpeed);

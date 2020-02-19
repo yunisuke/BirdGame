@@ -11,6 +11,7 @@ public class TitleController : MonoBehaviour
     void Start () {
         SoundManager.Instance.Initialize ();
         AdManager.Instance.Initialize ();
+        FPSManager.Instance.Initialize ();
         AdManager.Instance.ShowAds ();
 
         lyCtr.SetGameSpeed (gameSpeed);

@@ -24,6 +24,7 @@ public class GameController : MonoBehaviour
     void Start () {
         SoundManager.Instance.Initialize ();
         AdManager.Instance.Initialize ();
+        FPSManager.Instance.Initialize ();
         AdManager.Instance.HideAds ();
 
         mainPanel.OnClickNextGameButtonAction = StartNextGame;
